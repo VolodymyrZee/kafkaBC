@@ -14,7 +14,7 @@ public class ProducerDemoWithCallback {
 
         final Logger logger = LoggerFactory.getLogger(ProducerDemoWithCallback.class);
 
-        //Create producewr properties
+        //Create producer properties
         String bootstrapServers = "127.0.0.1:9092";
         Properties properties = new Properties();
         properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);

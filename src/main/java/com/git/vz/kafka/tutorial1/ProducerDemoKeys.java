@@ -7,10 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
+import java.util.concurrent.ExecutionException;
 
 public class ProducerDemoKeys {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         final Logger logger = LoggerFactory.getLogger(ProducerDemoKeys.class);
 
@@ -30,8 +31,23 @@ public class ProducerDemoKeys {
             //create a producer record
 
             String topic = "first_topic";
+            String value = "Hello World" + Integer.toString(i);
+            String key = "id_" + Integer.toString(i);
 
-            final ProducerRecord<String, String> record = new ProducerRecord<String, String>("first_topic", "hello world"+ Integer.toString(i));
+            final ProducerRecord<String, String> record =
+                    new ProducerRecord<String, String>(topic, key, value);
+
+            logger.info("Key: " + key); //log the key
+            // id_0 is going to partition 1
+            // id_1 partition 0
+            //id_2 partition 2
+            // id_3 partition 0
+            //id_4 partition 2
+            //id_5 partition 2
+            // id_6 partition 0
+            //id_7 partition 2
+            //id_8 partition 1
+            //id_9 partition 2
 
 
             //send data - asynchronous
@@ -49,7 +65,7 @@ public class ProducerDemoKeys {
                         logger.error("Error while producing", e);
                     }
                 }
-            });
+            }).get(); //block the .send() to make it synchronous - don't do this in the production!
         }
         //flush data
         producer.flush();
