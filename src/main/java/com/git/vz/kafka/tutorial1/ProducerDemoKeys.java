@@ -8,13 +8,13 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
-public class ProducerDemoWithCallback {
+public class ProducerDemoKeys {
 
     public static void main(String[] args) {
 
-        final Logger logger = LoggerFactory.getLogger(ProducerDemoWithCallback.class);
+        final Logger logger = LoggerFactory.getLogger(ProducerDemoKeys.class);
 
-        //Create producewr properties
+        //Create producer properties
         String bootstrapServers = "127.0.0.1:9092";
 
         Properties properties = new Properties();
