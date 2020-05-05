@@ -1,6 +1,8 @@
 package com.git.vz.kafka.tutorial1;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.protocol.types.Field;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -43,7 +45,11 @@ public class ConsumerDemo {
         //poll for new data
 
         while (true) {
-            consumer.poll(Duration.ofMillis(100)); //new in Kafka 2.0.0
+          ConsumerRecords<String, String> records =
+                  consumer.poll(Duration.ofMillis(100)); //new in Kafka 2.0.0
+            for (ConsumerRecord<String, String> record : records ) {
+                logger.
+            }
         }
     }
 }
