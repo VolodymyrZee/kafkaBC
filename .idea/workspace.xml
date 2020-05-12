@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9853e18c-84d6-4636-a4f7-9032187959ac" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/git/vz/kafka/tutorial1/ConsumerDemoGroups.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/git/vz/kafka/tutorial1/ConsumerDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/git/vz/kafka/tutorial1/ConsumerDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/git/vz/kafka/tutorial1/ConsumerDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/git/vz/kafka/tutorial1/ConsumerDemo.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,9 +50,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ConsumerDemo">
+  <component name="RunManager" selected="Application.ConsumerDemoGroups">
     <configuration name="ConsumerDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.git.vz.kafka.tutorial1.ConsumerDemo" />
+      <module name="kafkabc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.git.vz.kafka.tutorial1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConsumerDemoGroups" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.git.vz.kafka.tutorial1.ConsumerDemoGroups" />
       <module name="kafkabc" />
       <extension name="coverage">
         <pattern>
@@ -103,8 +118,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ConsumerDemo" />
+        <item itemvalue="Application.ConsumerDemoGroups" />
         <item itemvalue="Application.ProducerDemoKeys" />
+        <item itemvalue="Application.ConsumerDemo" />
         <item itemvalue="Application.ProducerDemoWithCallback" />
         <item itemvalue="Application.ProducerDemo" />
       </list>
