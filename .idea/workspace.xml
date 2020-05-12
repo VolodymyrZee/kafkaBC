@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9853e18c-84d6-4636-a4f7-9032187959ac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/git/vz/kafka/tutorial1/ConsumerDemoGroups.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/git/vz/kafka/tutorial1/ConsumerDemoWithThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/git/vz/kafka/tutorial1/ConsumerDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/git/vz/kafka/tutorial1/ConsumerDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/git/vz/kafka/tutorial1/ConsumerDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/git/vz/kafka/tutorial1/ConsumerDemo.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +35,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.git.vz.kafka.tutorial1" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
