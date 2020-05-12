@@ -40,7 +40,7 @@ public class ConsumerDemo {
 
         //subscribe consumer to our topic(s)
 
-        consumer.subscribe(Arrays.asList(topic);
+        consumer.subscribe(Arrays.asList(topic));
 
         //poll for new data
 
@@ -48,7 +48,9 @@ public class ConsumerDemo {
           ConsumerRecords<String, String> records =
                   consumer.poll(Duration.ofMillis(100)); //new in Kafka 2.0.0
             for (ConsumerRecord<String, String> record : records ) {
-                logger.
+                logger.info("Key: " + record.key() + ", Value: " + record.value());
+                logger.info("Partition: " + record.partition() + ", Offset: " + record.offset());
+
             }
         }
     }
