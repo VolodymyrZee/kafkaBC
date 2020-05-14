@@ -53,6 +53,11 @@ public class TwitterProducer {
         // add a shutdown hook
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             logger.info("Stopping application...");
+            logger.info("Shutting down client from twitter...");
+            client.stop();
+            logger.info("closing producer...");
+            producer.close();
+            logger.info("Done!");
         }));
 
         //loop to send tweets to kafka
