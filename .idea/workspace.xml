@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9853e18c-84d6-4636-a4f7-9032187959ac" name="Default Changelist" comment="" />
+    <list default="true" id="9853e18c-84d6-4636-a4f7-9032187959ac" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-basics/src/main/java/kafka/tutorial1/ProducerDemoWithCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-basics/src/main/java/kafka/tutorial1/ProducerDemoWithCallback.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +58,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TwitterProducer">
+  <component name="RunManager" selected="Application.ProducerDemo">
     <configuration name="ConsumerDemoAssignSeek" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.git.vz.kafka.tutorial1.ConsumerDemoAssignSeek" />
       <module name="kafkabc" />
@@ -95,12 +98,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProducerDemoKeys" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.git.vz.kafka.tutorial1.ProducerDemoKeys" />
-      <module name="kafkabc" />
+    <configuration name="ProducerDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="kafka.tutorial1.ProducerDemo" />
+      <module name="kafka-basics" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.git.vz.kafka.tutorial1.*" />
+          <option name="PATTERN" value="kafka.tutorial1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -123,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ProducerDemo" />
         <item itemvalue="Application.TwitterProducer" />
         <item itemvalue="Application.ConsumerDemoAssignSeek" />
         <item itemvalue="Application.ConsumerDemoWithThread" />
         <item itemvalue="Application.ConsumerDemoGroups" />
-        <item itemvalue="Application.ProducerDemoKeys" />
       </list>
     </recent_temporary>
   </component>
