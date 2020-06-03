@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9853e18c-84d6-4636-a4f7-9032187959ac" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-consumer-elasticsearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-consumer-elasticsearch/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kafka-consumer-elasticsearch/src/main/java/com/git/vz/kafka1/tutorial3/ElasticSearchConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-consumer-elasticsearch/src/main/java/com/git/vz/kafka1/tutorial3/ElasticSearchConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-consumer-elasticsearch/target/classes/com/git/vz/kafka1/tutorial3/ElasticSearchConsumer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-consumer-elasticsearch/target/classes/com/git/vz/kafka1/tutorial3/ElasticSearchConsumer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-consumer-elasticsearch/target/classes/com/git/vz/kafka1/tutorial3/ElasticSearchConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-consumer-elasticsearch/target/classes/com/git/vz/kafka1/tutorial3/ElasticSearchConsumer.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -168,5 +171,21 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/kafka-consumer-elasticsearch/src/main/java/com/git/vz/kafka1/tutorial3/ElasticSearchConsumer.java</url>
+          <line>129</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/kafka-consumer-elasticsearch/src/main/java/com/git/vz/kafka1/tutorial3/ElasticSearchConsumer.java</url>
+          <line>125</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

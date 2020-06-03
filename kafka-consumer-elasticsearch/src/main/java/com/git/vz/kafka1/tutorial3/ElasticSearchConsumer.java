@@ -1,5 +1,7 @@
 package com.git.vz.kafka1.tutorial3;
 
+import com.fasterxml.jackson.core.*;
+import com.google.gson.JsonParser;
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -7,6 +9,8 @@ import org.apache.http.client.CredentialsProvider;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.nio.client.HttpAsyncClientBuilder;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.elasticsearch.action.index.IndexRequest;
@@ -21,6 +25,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
 
@@ -51,7 +58,7 @@ public class ElasticSearchConsumer {
 
             public static KafkaConsumer <String, String> createConsumer(String topic){
                 String bootstrapServers = "127.0.0.1:9092";
-                String groupId = "kafka-demo-elasticsearch";
+                String groupId = "kafka-elasticsearch";
 
 
 
@@ -72,6 +79,16 @@ public class ElasticSearchConsumer {
                 return  consumer;
             }
 
+            private static JsonParser jsonParser = new JsonParser();
+
+            private static String extractIdFromTweet(String tweetJson){
+                //gson library
+           return jsonParser.parse(tweetJson)
+                    .getAsJsonObject()
+                    .get("id_string")
+                    .getAsString();
+
+            }
 
     public static void main(String[] args) throws IOException {
 
@@ -79,19 +96,48 @@ public class ElasticSearchConsumer {
 
                 RestHighLevelClient client = createClient();
 
-                String jsonString = "{ \"foo\": \"bar\" }";
-
-        IndexRequest indexRequest = new IndexRequest("twitter", "tweets").source(jsonString, XContentType.JSON);
-
-        IndexResponse indexResponse = client.index(indexRequest, RequestOptions.DEFAULT);
-
-        String id = indexResponse.getId();
-        logger.info(id);
 
         KafkaConsumer<String, String> consumer = createConsumer("twitter_tweets");
 
+        while (true) {
+            ConsumerRecords<String, String> records =
+                    consumer.poll(Duration.ofMillis(100)); //new in Kafka 2.0.0
+            for (ConsumerRecord<String, String> record : records ) {
+                // where we insert data into ElasticSearch
+
+
+                //2 strategies
+                //kafka generic ID
+
+               // String id = record.topic()+ "_" + record.partition()+ "_" + record.offset();
+
+                //twitter feed specific id
+
+                String id = extractIdFromTweet(record.value());
+
+
+
+                IndexRequest indexRequest = new IndexRequest(
+                        "twitter",
+                        "tweets",
+                        id // this is to make your consumer idempotent
+                ).source(record.value(), XContentType.JSON);
+
+                IndexResponse indexResponse = client.index(indexRequest, RequestOptions.DEFAULT);
+
+
+                logger.info(indexResponse.getId());
+                try {
+                    Thread.sleep(1000); //introduces a small delay
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+
         // to close the client gracefully
-        client.close();
+        //client.close();
 
 
     }
