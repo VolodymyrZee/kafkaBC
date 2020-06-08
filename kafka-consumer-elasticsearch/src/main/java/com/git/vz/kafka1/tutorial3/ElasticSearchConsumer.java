@@ -101,13 +101,16 @@ public class ElasticSearchConsumer {
                 RestHighLevelClient client = createClient();
 
 
-        KafkaConsumer<String, String> consumer = createConsumer("twitter_tweets");
+        KafkaConsumer<String, String> consumer =
+                createConsumer("twitter_tweets");
 
         while (true) {
             ConsumerRecords<String, String> records =
+
                     consumer.poll(Duration.ofMillis(100)); //new in Kafka 2.0.0
 
             Integer recordCount = records.count();
+
             logger.info("Received " + recordCount + " records");
 
             BulkRequest bulkRequest = new BulkRequest();
@@ -118,12 +121,12 @@ public class ElasticSearchConsumer {
 
                 //2 strategies
                 //kafka generic ID
-
                 // String id = record.topic()+ "_" + record.partition()+ "_" + record.offset();
-
                 //twitter feed specific id
 
+
                 try {
+
                     String id = extractIdFromTweet(record.value());
 
 
@@ -134,6 +137,7 @@ public class ElasticSearchConsumer {
                     ).source(record.value(), XContentType.JSON);
 
                     bulkRequest.add(indexRequest); //we add to our bulk request(takes no time)
+
                 }catch (NullPointerException e) {
                     logger.warn("skipping bad data: " + record.value());
                 }
@@ -141,11 +145,15 @@ public class ElasticSearchConsumer {
 
             if (recordCount > 0) {
 
-                BulkResponse bulkItemResponses = client.bulk(bulkRequest, RequestOptions.DEFAULT);
+                BulkResponse bulkItemResponses =
+                        client.bulk(bulkRequest, RequestOptions.DEFAULT);
 
                 logger.info("Committing offsets...");
+
                 consumer.commitSync();
+
                 logger.info("Offsets have been committed");
+
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
